@@ -21,11 +21,14 @@ import DetailHeader from "~components/jobs/DetailHeader";
 import CandidateItem from "~components/jobs/CandidateItem";
 import LoadingWrapper from "~components/common/LoadingWrapper";
 import JobDetailContentUser from "~components/jobs/JobDetailContentUser";
+import Comments from "~components/jobs/Comments";
 
 // Actions
 import getJobCandidate from "./actions/getJobCandidate";
 import setJobDetailData from "./actions/setJobDetailData";
 import getCandidateDetail from "./actions/getCandidateDetail";
+import addComment from "./actions/addComment";
+import getCandidateComments from "./actions/getCandidateComments";
 import getJobsList from "./actions/getJobsList";
 import AddCustomCategory from "./AddCustomCategory";
 import getCustomCategories from "./actions/getCustomCategories";
@@ -49,28 +52,46 @@ class JobDetail extends Component {
       search: "",
       data: {},
       type: "",
+      PostUserId: null,
     };
   }
 
-  handleChange = (event) => {
+  handleChange = ({ target }) => {
     this.setState({
-      type: event.target.value,
+      type: target.value,
+    });
+    this.handleGetCandidate(target.value);
+  };
+
+  handAddComment = (body) => {
+    const { jobDetailActions } = this.props;
+    const { PostUserId } = this.state;
+    console.log(this.state);
+    jobDetailActions.addComment({
+      body,
+      PostUserId,
     });
   };
 
   /* handle select one candidate under a job and fetches his data */
   handleSelecteCandidate = (candidate) => {
     const { jobDetailActions, jobDetailData, match } = this.props;
-
+    this.setState({
+      PostUserId: candidate.id,
+    });
     jobDetailActions.getCandidateDetail({
       id: candidate.id,
       user_id: candidate.User?.id,
       job_id: match?.params?.id,
     });
+
+    jobDetailActions.getCandidateComments({
+      PostUserId: candidate.id,
+    });
   };
 
   /* handles pick one job and fetches its data */
-  handleGetCandidate = () => {
+  handleGetCandidate = (sortBy) => {
     const { jobDetailActions, match } = this.props;
 
     const searchParams = queryString.parse(window.location.search);
@@ -87,7 +108,7 @@ class JobDetail extends Component {
     if (searchParams.category !== undefined) {
       data.folder = searchParams.category.toLowerCase();
     }
-
+    if (sortBy) data.sortBy = sortBy;
     jobDetailActions.getJobCandidate(data);
   };
 
@@ -100,8 +121,7 @@ class JobDetail extends Component {
   /* handle select users */
   handleCheckAllUser = () => {
     const { jobDetailData, jobCandidate, jobDetailActions } = this.props;
-    const isAllSelected =
-      jobDetailData.checkedUsers.length === jobCandidate.length;
+    const isAllSelected = jobDetailData.checkedUsers.length === jobCandidate.length;
 
     if (isAllSelected) {
       jobDetailActions.setJobDetailData({
@@ -120,9 +140,7 @@ class JobDetail extends Component {
   handleChangeCheckdUser = (user) => {
     const { jobDetailData, jobDetailActions } = this.props;
 
-    const data = jobDetailData.checkedUsers
-      ? jobDetailData.checkedUsers.slice()
-      : [];
+    const data = jobDetailData.checkedUsers ? jobDetailData.checkedUsers.slice() : [];
     const dataId = data.map((item) => item.id);
     const findItem = dataId.indexOf(user.id);
 
@@ -141,9 +159,7 @@ class JobDetail extends Component {
   /* handle move a user to a list */
   handleMoveUserToCategory = (folder = {}) => {
     const { match, jobDetailData, jobDetailActions } = this.props;
-    const userIds = jobDetailData.checkedUsers
-      ? jobDetailData.checkedUsers.map((item) => item.id)
-      : [];
+    const userIds = jobDetailData.checkedUsers ? jobDetailData.checkedUsers.map((item) => item.id) : [];
     const data = {
       users_id: userIds,
       job_id: match?.params?.id,
@@ -218,12 +234,7 @@ class JobDetail extends Component {
 
     return (
       <div>
-        <HeaderJobDetail
-          data={jobsList}
-          jobId={match?.params?.id}
-          postId={match?.params?.id}
-          postDetails={this.state.data}
-        />
+        <HeaderJobDetail data={jobsList} jobId={match?.params?.id} postId={match?.params?.id} postDetails={this.state.data} />
         <LoadingWrapper isLoading={isLoadingJobCandidate}>
           <DetailHeader
             selected={jobDetailData.selectedUser}
@@ -242,18 +253,10 @@ class JobDetail extends Component {
               <div className={styles.board_content}>
                 <div className={styles.left_side}>
                   <div className={styles.search}>
-                    {!!(
-                      jobDetailData.checkedUsers &&
-                      jobDetailData.checkedUsers.length
-                    ) && (
+                    {!!(jobDetailData.checkedUsers && jobDetailData.checkedUsers.length) && (
                       <div className={styles.selected_all}>
                         <button type="button" onClick={this.handleCheckAllUser}>
-                          {!!(
-                            jobDetailData.checkedUsers.length ===
-                            jobCandidate.length
-                          )
-                            ? "Deselect all"
-                            : "Select all"}
+                          {!!(jobDetailData.checkedUsers.length === jobCandidate.length) ? "Deselect all" : "Select all"}
                         </button>
                       </div>
                     )}
@@ -289,25 +292,13 @@ class JobDetail extends Component {
                         <Menu>
                           <Menu.Item>
                             <label>
-                              <input
-                                type="radio"
-                                value="NewToOld"
-                                checked={this.state.type === "NewToOld"}
-                                onChange={this.handleChange}
-                                style={{ marginRight: "6px" }}
-                              />
+                              <input type="radio" value="DESC" checked={this.state.type === "DESC"} onChange={this.handleChange} style={{ marginRight: "6px" }} />
                               New to Old
                             </label>
                           </Menu.Item>
                           <Menu.Item>
                             <label>
-                              <input
-                                type="radio"
-                                value="OldToNew"
-                                checked={this.state.type === "OldToNew"}
-                                onChange={this.handleChange}
-                                style={{ marginRight: "6px" }}
-                              />
+                              <input type="radio" value="ASC" checked={this.state.type === "ASC"} onChange={this.handleChange} style={{ marginRight: "6px" }} />
                               Old to New
                             </label>
                           </Menu.Item>
@@ -327,27 +318,13 @@ class JobDetail extends Component {
                           </Menu.Item>
                           <Menu.Item>
                             <label>
-                              <input
-                                type="radio"
-                                value="UnreadFirst"
-                                checked={this.state.type === "UnreadFirst"}
-                                onChange={this.handleChange}
-                                style={{ marginRight: "6px" }}
-                              />
+                              <input type="radio" value="isReaded" checked={this.state.type === "isReaded"} onChange={this.handleChange} style={{ marginRight: "6px" }} />
                               Unread First
                             </label>
                           </Menu.Item>
                           <Menu.Item>
                             <label>
-                              <input
-                                type="radio"
-                                value="WithCommentsFirst"
-                                checked={
-                                  this.state.type === "WithCommentsFirst"
-                                }
-                                onChange={this.handleChange}
-                                style={{ marginRight: "6px" }}
-                              />
+                              <input type="radio" value="isCommented" checked={this.state.type === "isCommented"} onChange={this.handleChange} style={{ marginRight: "6px" }} />
                               With Comments First
                             </label>
                           </Menu.Item>
@@ -355,10 +332,7 @@ class JobDetail extends Component {
                       }
                       trigger={["click"]}
                     >
-                      <span
-                        className="ant-dropdown-link"
-                        onClick={(e) => e.preventDefault()}
-                      >
+                      <span className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
                         <FontAwesomeIcon icon={["fas", "sort-alpha-down"]} />
                         Sort
                       </span>
@@ -616,7 +590,6 @@ class JobDetail extends Component {
                       {/* <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
       Hover me <DownOutlined />
     </a> */}
-
                     </Dropdown>
 
                     <span className={styles.passed}>Passed</span>
@@ -639,13 +612,9 @@ class JobDetail extends Component {
                   </Scrollbars>
                 </div>
 
-                <JobDetailContentUser
-                  isLoading={isLoadingCandidateDetail}
-                  selected={jobDetailData.selectedUser}
-                  candidatesNumber={jobCandidate}
-                />
+                <JobDetailContentUser isLoading={isLoadingCandidateDetail} selected={jobDetailData.selectedUser} candidatesNumber={jobCandidate} />
 
-                <div>Comments</div>
+                <Comments addComment={this.handAddComment} comments={jobDetailData.comments} isSelected={jobDetailData.selectedUser} />
               </div>
             </div>
           </div>
@@ -680,8 +649,10 @@ const mapDispatchToProps = (dispatch) => ({
       getJobCandidate,
       setJobDetailData,
       getCandidateDetail,
+      addComment,
       getCustomCategories,
       userMoveToCategory,
+      getCandidateComments,
     },
     dispatch
   ),
@@ -690,7 +661,4 @@ const mapDispatchToProps = (dispatch) => ({
   postActions: bindActionCreators({ getPostDetails }, dispatch),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withNamespaces()(JobDetail));
+export default connect(mapStateToProps, mapDispatchToProps)(withNamespaces()(JobDetail));

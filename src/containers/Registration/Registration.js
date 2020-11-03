@@ -17,9 +17,10 @@ import { Avatar, Input, Select, FormWrapper, Button } from "~components/forms";
 
 // Actions
 
+import setRegistrationData from './actions/setRegistrationData';
+import createCompany from './actions/createCompany';
 import authCompany from '../Auth/actions/authCompany';
-import setRegistrationData from "./actions/setRegistrationData";
-import createCompany from "./actions/createCompany";
+
 import TextArea from "antd/lib/input/TextArea";
 
 class Registration extends Component {
@@ -86,7 +87,6 @@ class Registration extends Component {
     registrationActions.createCompany(data, {
       success: (response) => {
         this.login(email,password)
-
         const { history } = this.props;
         const { message, data } = response;
         notifi.success(message);

@@ -271,7 +271,7 @@ class JobDetailContentUser extends Component {
                 <p>{t("job.detail.file_head.cv")}</p>
               </div>
 
-              <PdfViewer file={user.PostUsers[0].attachments} />
+              <PdfViewer file={user.PostUsers[0].File} />
             </div>
           </LoadingWrapper>
         </div>

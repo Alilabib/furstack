@@ -11,7 +11,6 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 export default function MyApp({ file }) {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
-
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
   }
@@ -23,11 +22,11 @@ export default function MyApp({ file }) {
     <div>
       <Document
         className={styles.pdf_viewer}
-        file={file}
+        file={file.path}
         loading={<LoadingOutlined />}
         onLoadSuccess={onDocumentLoadSuccess}>
         {pages.length > 0 &&
-          pages.map((page, i) => <Page pageNumber={i + 1} className={styles.page} />)}
+          pages.map((page, i) => <Page pageNumber={i + 1} className={styles.page} key={i} />)}
       </Document>
     </div>
   );

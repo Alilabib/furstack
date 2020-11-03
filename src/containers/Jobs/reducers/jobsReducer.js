@@ -15,6 +15,8 @@ import {
   SET_JOB_DETAIL_DATA,
   CLEAR_JOB_DETAIL_DATA,
   GET_CANDIDATE_DETAIL,
+  GET_CANDIDATE_COMMENTS,
+  ADD_COMMENT,
   CREATE_CUSTOM_CATEGORY,
   GET_CUSTOM_CATEGORIES,
   GET_JOB_CATEGORY
@@ -114,6 +116,30 @@ const jobsReducer = (state = initialState, { payload, type }) => {
     case `${GET_CANDIDATE_DETAIL}_FAIL`:
       return { ...state, isLoadingCandidateDetail: 0 };
 
+    // job candidate comment
+    // case GET_CANDIDATE_DETAIL:
+      // return { ...state, isLoadingCandidateDetail: 1 };
+      case `${GET_CANDIDATE_COMMENTS}_SUCCESS`:
+        return {
+          ...state,
+          isLoadingCandidateComments: 0,
+          jobDetailData: { ...state.jobDetailData, comments: payload }
+        };
+      case `${GET_CANDIDATE_COMMENTS}_FAIL`:
+        return { ...state, isLoadingCandidateComments: 0 };
+
+    // job add candidate comment
+    // case GET_CANDIDATE_DETAIL:
+      // return { ...state, isLoadingCandidateDetail: 1 };
+      case `${ADD_COMMENT}_SUCCESS`:
+        return {
+          ...state,
+          isLoadingCandidateComments: 0,
+          jobDetailData: { ...state.jobDetailData, comments: [...state.jobDetailData.comments,payload] }
+        };
+      case `${ADD_COMMENT}_FAIL`:
+        return { ...state, isLoadingCandidateComments: 0 };
+    
     // job candidate detail
     case GET_CUSTOM_CATEGORIES:
       return { ...state, isLoadingCustomCategories: 1 };
