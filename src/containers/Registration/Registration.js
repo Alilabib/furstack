@@ -16,6 +16,8 @@ import { Step1, Step2 } from "./steps";
 import { Avatar, Input, Select, FormWrapper, Button } from "~components/forms";
 
 // Actions
+
+import authCompany from '../Auth/actions/authCompany';
 import setRegistrationData from "./actions/setRegistrationData";
 import createCompany from "./actions/createCompany";
 import TextArea from "antd/lib/input/TextArea";
@@ -29,10 +31,26 @@ class Registration extends Component {
     console.log(state);
   };
 
+
+  login = (email,password) =>{
+    const data = {email,password}
+    const { history, registrationActions } = this.props;
+    registrationActions.authCompany(data, {
+      success: (response) => {
+        history.replace('/dashboard');
+      },
+      fail: (response) => {
+        const { message } = response;
+        notifi.error(message);
+      },
+    });
+  }
   onSubmit = () => {
     const { registrationData, registrationActions } = this.props;
+
     console.warn(registrationData);
     const { email = "", password = "", rePassword = "" } = registrationData;
+
 
     const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (!email.match(mailformat)) {
@@ -67,6 +85,8 @@ class Registration extends Component {
 
     registrationActions.createCompany(data, {
       success: (response) => {
+        this.login(email,password)
+
         const { history } = this.props;
         const { message, data } = response;
         notifi.success(message);
@@ -382,7 +402,7 @@ const mapStateToProps = (store) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   registrationActions: bindActionCreators(
-    { setRegistrationData, createCompany },
+    { setRegistrationData, createCompany,authCompany },
     dispatch
   ),
 });
