@@ -55,7 +55,7 @@ class LandingDemo extends Component {
                     استعراض الفرص
                   </button>
                 </Link>{" "}
-                <Link to="/startjobs">
+                <a href="https://airtable.com/shrsvOP1B9iS8EnKc">
 
                   <button type="button" className={styles.create_account}>
                     <FontAwesomeIcon
@@ -65,7 +65,7 @@ class LandingDemo extends Component {
                     أبدأ بالتوظيف
                   </button>
 
-                </Link>
+                </a>
               </div>
             </div>
             <div className="col-md-3 col-sm-12"></div>

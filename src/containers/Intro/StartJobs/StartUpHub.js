@@ -22,7 +22,7 @@ import shape14 from './img/shape14.png'
 import shape15 from './img/shape15.png'
 import shape16 from './img/shape16.png'
 
-class StartJobs extends Component {
+class StartUpHub extends Component {
   render() {
     return (
 <div>
@@ -238,4 +238,4 @@ class StartJobs extends Component {
   }
 }
 
-export default StartJobs;
+export default StartUpHub;

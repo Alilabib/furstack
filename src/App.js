@@ -29,7 +29,7 @@ import CheckPayment from "~containers/Pay/CheckPayment";
 import MyWebsite from "~containers/Dashboard/MyWebsite";
 import VerificationCompany from "~containers/Dashboard/VerificationCompany";
 import AllJobs from "../src/containers/Intro/AllJobs/AllJobs";
-import StartJobs from '../src/containers/Intro/StartJobs/StartJobs'
+import StartUpHub from '../src/containers/Intro/StartJobs/StartUpHub'
 import history from './history';
 
 function App() {
@@ -47,7 +47,7 @@ function App() {
       <Switch>
        <Route exact path='/demo' component={LandingDemo} />
         <Route exact path='/alljobs' component={AllJobs} />
-        <Route exact path='/startjobs' component={StartJobs} />
+        <Route exact path='/startuphub' component={StartUpHub} />
         <Route exact path='/view' component={ViewJobs} />
         <PublicRoute exact path='/' component={Landing} />
         <PublicRoute exact path='/demo' component={LandingDemo} />
