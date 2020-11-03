@@ -1,0 +1,968 @@
+@media screen and (max-width: 1023px) {
+  .startuphubkhobar { 
+    display: none;
+   }
+  .startuphubkhobar1 { 
+    display: none;
+   }
+}
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+  .startuphubkhobar { 
+    display: none;
+   }
+  .startuphubkhobar2 { 
+    display: none;
+   }
+}
+@media screen and (min-width: 1440px) {
+  .startuphubkhobar1 { 
+    display: none;
+   }
+  .startuphubkhobar2 { 
+    display: none;
+   }
+}
+/* screen - startuphubkhobar */
+
+.font-class-1 {
+  color: var(--quick-silver);
+  font-family: "FrutigerLTArabic-55Roman", Helvetica, Arial, serif;
+}
+.startuphubkhobar {
+  background-color: var(--white);
+  height: 100vh;
+  margin: 0px;
+  min-height: 1024px;
+  min-width: 1440px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.startuphubkhobar .facebook-NOXmfT {
+  background-color: transparent;
+  background-image: url(../img/startup-hub-khobar-oval-6A7DE0B1-D514-4819-8D4B-E0C47A8C1204@2x.png);
+  background-size: 100% 100%;
+  height: 30px;
+  left: 119px;
+  position: absolute;
+  top: 0px;
+  width: 30px;
+}
+.startuphubkhobar .global-2-NOXmfT {
+  background-color: transparent;
+  height: 30px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 30px;
+}
+.startuphubkhobar .group-C61RwL {
+  background-color: transparent;
+  height: 30px;
+  position: absolute;
+  top: 204px;
+  width: 261px;
+}
+.startuphubkhobar .hub-logo-C61RwL {
+  background-color: transparent;
+  height: 59px;
+  position: absolute;
+  top: 62px;
+  width: 262px;
+}
+.startuphubkhobar .instagram-NOXmfT {
+  background-color: transparent;
+  background-image: url(../img/startup-hub-khobar-shape-BF9CC965-62DA-4AFA-84E8-0993BCFD9028@2x.png);
+  background-size: 100% 100%;
+  height: 30px;
+  left: 175px;
+  position: absolute;
+  top: 0px;
+  width: 30px;
+}
+.startuphubkhobar .linkedin-NOXmfT {
+  background-color: transparent;
+  background-image: url(../img/startup-hub-khobar-shape-06D18D4E-50B2-48B3-9733-CBA7AAD6871B@2x.png);
+  background-size: 100% 100%;
+  height: 30px;
+  left: 231px;
+  position: absolute;
+  top: 0px;
+  width: 30px;
+}
+.startuphubkhobar .oval-aqZ4Sd {
+  background-color: transparent;
+  height: 4px;
+  left: 21px;
+  position: absolute;
+  top: 5px;
+  width: 4px;
+}
+.startuphubkhobar .path-026VEG {
+  background-color: transparent;
+  height: 6px;
+  left: 19px;
+  position: absolute;
+  top: 0px;
+  width: 7px;
+}
+.startuphubkhobar .path-0wixww {
+  background-color: transparent;
+  height: 6px;
+  left: 4px;
+  position: absolute;
+  top: 0px;
+  width: 7px;
+}
+.startuphubkhobar .path-1og7zh {
+  background-color: transparent;
+  height: 7px;
+  left: 16px;
+  position: absolute;
+  top: 16px;
+  width: 7px;
+}
+.startuphubkhobar .path-7Bgfnb {
+  background-color: transparent;
+  height: 6px;
+  left: 4px;
+  position: absolute;
+  top: 24px;
+  width: 7px;
+}
+.startuphubkhobar .path-92pbm4 {
+  background-color: transparent;
+  height: 7px;
+  left: 9px;
+  position: absolute;
+  top: 23px;
+  width: 6px;
+}
+.startuphubkhobar .path-AfCyfb {
+  background-color: transparent;
+  height: 9px;
+  left: 22px;
+  position: absolute;
+  top: 5px;
+  width: 8px;
+}
+.startuphubkhobar .path-LLxRjN {
+  background-color: transparent;
+  height: 6px;
+  left: 19px;
+  position: absolute;
+  top: 24px;
+  width: 7px;
+}
+.startuphubkhobar .path-LvSRBQ {
+  background-color: transparent;
+  height: 9px;
+  left: 0px;
+  position: absolute;
+  top: 16px;
+  width: 8px;
+}
+.startuphubkhobar .path-SW9xrz {
+  background-color: transparent;
+  height: 7px;
+  left: 8px;
+  position: absolute;
+  top: 7px;
+  width: 7px;
+}
+.startuphubkhobar .path-VDFvcu {
+  background-color: transparent;
+  height: 7px;
+  left: 9px;
+  position: absolute;
+  top: 0px;
+  width: 6px;
+}
+.startuphubkhobar .path-VQst24 {
+  background-color: transparent;
+  height: 7px;
+  left: 16px;
+  position: absolute;
+  top: 0px;
+  width: 6px;
+}
+.startuphubkhobar .path-VhcBLE {
+  background-color: transparent;
+  height: 9px;
+  left: 22px;
+  position: absolute;
+  top: 16px;
+  width: 8px;
+}
+.startuphubkhobar .path-apxJo5 {
+  background-color: transparent;
+  height: 9px;
+  left: 0px;
+  position: absolute;
+  top: 5px;
+  width: 8px;
+}
+.startuphubkhobar .path-brSqjp {
+  background-color: transparent;
+  height: 7px;
+  left: 16px;
+  position: absolute;
+  top: 7px;
+  width: 7px;
+}
+.startuphubkhobar .path-e5GK5c {
+  background-color: transparent;
+  height: 19px;
+  left: 10px;
+  position: absolute;
+  top: 6px;
+  width: 9px;
+}
+.startuphubkhobar .path-k5KRVh {
+  background-color: transparent;
+  height: 7px;
+  left: 8px;
+  position: absolute;
+  top: 16px;
+  width: 7px;
+}
+.startuphubkhobar .path-ttmW0C {
+  background-color: transparent;
+  height: 7px;
+  left: 16px;
+  position: absolute;
+  top: 23px;
+  width: 6px;
+}
+.startuphubkhobar .rectangle-C61RwL {
+  align-items: center;
+  background-color: transparent;
+  bottom: 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 761px;
+  justify-content: center;
+  left: 95px;
+  position: absolute;
+  width: calc(100.00% - 190px);
+}
+.startuphubkhobar .shape-aqZ4Sd {
+  background-color: transparent;
+  height: 15px;
+  left: 7px;
+  position: absolute;
+  top: 7px;
+  width: 15px;
+}
+.startuphubkhobar .twitter-NOXmfT {
+  background-color: transparent;
+  background-image: url(../img/startup-hub-khobar-path-4BE684D7-E3AD-47B2-A7CE-9C78205CF3E6@2x.png);
+  background-size: 100% 100%;
+  height: 30px;
+  left: 56px;
+  position: absolute;
+  top: 0px;
+  width: 37px;
+}
+.startuphubkhobar .u0645u062c-0644-u0628-C61RwL {
+  background-color: transparent;
+  font-size: 16px;
+  height: auto;
+  left: 95px;
+  line-height: 31px;
+  position: absolute;
+  text-align: center;
+  top: 140px;
+  width: calc(100.00% - 190px);
+}
+:root {
+  --quick-silver: rgba(165,165,165,1.0);
+  --white: rgba(255,255,255,1.0);
+}
+/* screen - startuphubkhobar1 */
+
+.font-class-1 {
+  color: var(--quick-silver);
+  font-family: "FrutigerLTArabic-55Roman", Helvetica, Arial, serif;
+}
+.startuphubkhobar1 {
+  background-color: var(--white);
+  height: 100vh;
+  margin: 0px;
+  min-height: 1024px;
+  min-width: 1024px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.startuphubkhobar1 .facebook-NOXmfT {
+  background-color: transparent;
+  background-image: url(../img/startup-hub-khobar-oval-9197F911-E9A7-44BF-9054-F71070D479A7@2x.png);
+  background-size: 100% 100%;
+  height: 23px;
+  left: 99px;
+  position: absolute;
+  top: 0px;
+  width: 23px;
+}
+.startuphubkhobar1 .global-2-NOXmfT {
+  background-color: transparent;
+  height: 23px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 23px;
+}
+.startuphubkhobar1 .group-C61RwL {
+  background-color: transparent;
+  height: 23px;
+  position: absolute;
+  top: 139px;
+  width: 216px;
+}
+.startuphubkhobar1 .hub-logo-C61RwL {
+  background-color: transparent;
+  height: 52px;
+  margin-left: -0px;
+  margin-right: 0px;
+  position: absolute;
+  top: 36px;
+  width: 231px;
+}
+.startuphubkhobar1 .instagram-NOXmfT {
+  background-color: transparent;
+  background-image: url(../img/startup-hub-khobar-shape-4AC5AFDF-C4CD-4A4F-98EF-96A36C604F85@2x.png);
+  background-size: 100% 100%;
+  height: 23px;
+  left: 146px;
+  position: absolute;
+  top: 0px;
+  width: 23px;
+}
+.startuphubkhobar1 .linkedin-NOXmfT {
+  background-color: transparent;
+  background-image: url(../img/startup-hub-khobar-shape-4FEB048A-2EAC-4917-AC96-6E0D22E9F582@2x.png);
+  background-size: 100% 100%;
+  height: 23px;
+  left: 193px;
+  position: absolute;
+  top: 0px;
+  width: 23px;
+}
+.startuphubkhobar1 .oval-aqZ4Sd {
+  background-color: transparent;
+  height: 3px;
+  left: 16px;
+  position: absolute;
+  top: 4px;
+  width: 3px;
+}
+.startuphubkhobar1 .path-026VEG {
+  background-color: transparent;
+  height: 4px;
+  left: 15px;
+  position: absolute;
+  top: 0px;
+  width: 5px;
+}
+.startuphubkhobar1 .path-0wixww {
+  background-color: transparent;
+  height: 4px;
+  left: 3px;
+  position: absolute;
+  top: 0px;
+  width: 5px;
+}
+.startuphubkhobar1 .path-1og7zh {
+  background-color: transparent;
+  height: 5px;
+  left: 12px;
+  position: absolute;
+  top: 12px;
+  width: 5px;
+}
+.startuphubkhobar1 .path-7Bgfnb {
+  background-color: transparent;
+  height: 4px;
+  left: 3px;
+  position: absolute;
+  top: 19px;
+  width: 5px;
+}
+.startuphubkhobar1 .path-92pbm4 {
+  background-color: transparent;
+  height: 5px;
+  left: 7px;
+  position: absolute;
+  top: 18px;
+  width: 4px;
+}
+.startuphubkhobar1 .path-AfCyfb {
+  background-color: transparent;
+  height: 7px;
+  left: 17px;
+  position: absolute;
+  top: 4px;
+  width: 6px;
+}
+.startuphubkhobar1 .path-LLxRjN {
+  background-color: transparent;
+  height: 4px;
+  left: 15px;
+  position: absolute;
+  top: 19px;
+  width: 5px;
+}
+.startuphubkhobar1 .path-LvSRBQ {
+  background-color: transparent;
+  height: 7px;
+  left: 0px;
+  position: absolute;
+  top: 12px;
+  width: 6px;
+}
+.startuphubkhobar1 .path-SW9xrz {
+  background-color: transparent;
+  height: 5px;
+  left: 6px;
+  position: absolute;
+  top: 6px;
+  width: 5px;
+}
+.startuphubkhobar1 .path-VDFvcu {
+  background-color: transparent;
+  height: 5px;
+  left: 7px;
+  position: absolute;
+  top: 0px;
+  width: 4px;
+}
+.startuphubkhobar1 .path-VQst24 {
+  background-color: transparent;
+  height: 5px;
+  left: 12px;
+  position: absolute;
+  top: 0px;
+  width: 4px;
+}
+.startuphubkhobar1 .path-VhcBLE {
+  background-color: transparent;
+  height: 7px;
+  left: 17px;
+  position: absolute;
+  top: 12px;
+  width: 6px;
+}
+.startuphubkhobar1 .path-apxJo5 {
+  background-color: transparent;
+  height: 7px;
+  left: 0px;
+  position: absolute;
+  top: 4px;
+  width: 6px;
+}
+.startuphubkhobar1 .path-brSqjp {
+  background-color: transparent;
+  height: 5px;
+  left: 12px;
+  position: absolute;
+  top: 6px;
+  width: 5px;
+}
+.startuphubkhobar1 .path-e5GK5c {
+  background-color: transparent;
+  height: 15px;
+  left: 8px;
+  position: absolute;
+  top: 4px;
+  width: 7px;
+}
+.startuphubkhobar1 .path-k5KRVh {
+  background-color: transparent;
+  height: 5px;
+  left: 6px;
+  position: absolute;
+  top: 12px;
+  width: 5px;
+}
+.startuphubkhobar1 .path-ttmW0C {
+  background-color: transparent;
+  height: 5px;
+  left: 12px;
+  position: absolute;
+  top: 18px;
+  width: 4px;
+}
+.startuphubkhobar1 .rectangle-copy-C61RwL {
+  align-items: center;
+  background-color: transparent;
+  bottom: 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 850px;
+  justify-content: center;
+  left: 37px;
+  position: absolute;
+  width: calc(100.00% - 74px);
+}
+.startuphubkhobar1 .shape-aqZ4Sd {
+  background-color: transparent;
+  height: 12px;
+  left: 5px;
+  position: absolute;
+  top: 5px;
+  width: 12px;
+}
+.startuphubkhobar1 .twitter-NOXmfT {
+  background-color: transparent;
+  background-image: url(../img/startup-hub-khobar-path-A03E7465-EE58-4F49-BD5A-102E230F1EAA@2x.png);
+  background-size: 100% 100%;
+  height: 23px;
+  left: 47px;
+  position: absolute;
+  top: 0px;
+  width: 28px;
+}
+.startuphubkhobar1 .u0645u062c-0644-u0628-C61RwL {
+  background-color: transparent;
+  font-size: 13px;
+  height: auto;
+  left: 37px;
+  line-height: 25px;
+  position: absolute;
+  text-align: center;
+  top: 100px;
+  width: calc(100.00% - 74px);
+}
+:root {
+  --quick-silver: rgba(165,165,165,1.0);
+  --white: rgba(255,255,255,1.0);
+}
+/* screen - startuphubkhobar2 */
+
+.font-class-1 {
+  color: var(--quick-silver);
+  font-family: "FrutigerLTArabic-55Roman", Helvetica, Arial, serif;
+}
+.startuphubkhobar2 {
+  background-color: var(--white);
+  height: 100vh;
+  margin: 0px;
+  min-height: 1024px;
+  min-width: 768px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.startuphubkhobar2 .facebook-copy-NOXmfT {
+  background-color: transparent;
+  background-image: url(../img/startup-hub-khobar-oval-4414035C-E835-4AF8-91BB-6A430AD32DC9@2x.png);
+  background-size: 100% 100%;
+  height: 21px;
+  left: 114px;
+  position: absolute;
+  top: 0px;
+  width: 21px;
+}
+.startuphubkhobar2 .global-2-copy-NOXmfT {
+  background-color: transparent;
+  height: 21px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 21px;
+}
+.startuphubkhobar2 .group-C61RwL {
+  background-color: transparent;
+  height: 21px;
+  position: absolute;
+  top: 138px;
+  width: 245px;
+}
+.startuphubkhobar2 .hub-logo-copy-C61RwL {
+  background-color: transparent;
+  height: 52px;
+  position: absolute;
+  top: 33px;
+  width: 231px;
+}
+.startuphubkhobar2 .instagram-copy-NOXmfT {
+  background-color: transparent;
+  background-image: url(../img/startup-hub-khobar-shape-332FFC9B-BD90-4C66-9CC5-7FFE9172B05C@2x.png);
+  background-size: 100% 100%;
+  height: 21px;
+  left: 169px;
+  position: absolute;
+  top: 0px;
+  width: 21px;
+}
+.startuphubkhobar2 .linkedin-copy-NOXmfT {
+  background-color: transparent;
+  background-image: url(../img/startup-hub-khobar-shape-4D5F2D75-F608-4545-8BCB-5838D2AD4DD5@2x.png);
+  background-size: 100% 100%;
+  height: 21px;
+  left: 224px;
+  position: absolute;
+  top: 0px;
+  width: 21px;
+}
+.startuphubkhobar2 .oval-6JI463 {
+  background-color: transparent;
+  height: 3px;
+  left: 14px;
+  position: absolute;
+  top: 4px;
+  width: 3px;
+}
+.startuphubkhobar2 .path-1dtQ0G {
+  background-color: transparent;
+  height: 5px;
+  left: 11px;
+  position: absolute;
+  top: 11px;
+  width: 5px;
+}
+.startuphubkhobar2 .path-3cs6Qa {
+  background-color: transparent;
+  height: 5px;
+  left: 6px;
+  position: absolute;
+  top: 16px;
+  width: 4px;
+}
+.startuphubkhobar2 .path-4XFKrU {
+  background-color: transparent;
+  height: 6px;
+  left: 16px;
+  position: absolute;
+  top: 11px;
+  width: 5px;
+}
+.startuphubkhobar2 .path-4YvjEr {
+  background-color: transparent;
+  height: 4px;
+  left: 13px;
+  position: absolute;
+  top: 17px;
+  width: 5px;
+}
+.startuphubkhobar2 .path-6Esp4X {
+  background-color: transparent;
+  height: 5px;
+  left: 11px;
+  position: absolute;
+  top: 5px;
+  width: 5px;
+}
+.startuphubkhobar2 .path-7OwWJG {
+  background-color: transparent;
+  height: 14px;
+  left: 8px;
+  position: absolute;
+  top: 3px;
+  width: 6px;
+}
+.startuphubkhobar2 .path-9X3bDU {
+  background-color: transparent;
+  height: 5px;
+  left: 6px;
+  position: absolute;
+  top: 0px;
+  width: 4px;
+}
+.startuphubkhobar2 .path-FMuStw {
+  background-color: transparent;
+  height: 6px;
+  left: 0px;
+  position: absolute;
+  top: 11px;
+  width: 5px;
+}
+.startuphubkhobar2 .path-IkIRv3 {
+  background-color: transparent;
+  height: 5px;
+  left: 5px;
+  position: absolute;
+  top: 5px;
+  width: 5px;
+}
+.startuphubkhobar2 .path-KxxUfV {
+  background-color: transparent;
+  height: 5px;
+  left: 5px;
+  position: absolute;
+  top: 11px;
+  width: 5px;
+}
+.startuphubkhobar2 .path-Nh7ZDB {
+  background-color: transparent;
+  height: 6px;
+  left: 16px;
+  position: absolute;
+  top: 4px;
+  width: 5px;
+}
+.startuphubkhobar2 .path-OKBERD {
+  background-color: transparent;
+  height: 6px;
+  left: 0px;
+  position: absolute;
+  top: 4px;
+  width: 5px;
+}
+.startuphubkhobar2 .path-XSRxC7 {
+  background-color: transparent;
+  height: 4px;
+  left: 3px;
+  position: absolute;
+  top: 17px;
+  width: 5px;
+}
+.startuphubkhobar2 .path-hZvAuv {
+  background-color: transparent;
+  height: 4px;
+  left: 13px;
+  position: absolute;
+  top: 0px;
+  width: 5px;
+}
+.startuphubkhobar2 .path-tkbSAM {
+  background-color: transparent;
+  height: 5px;
+  left: 11px;
+  position: absolute;
+  top: 16px;
+  width: 4px;
+}
+.startuphubkhobar2 .path-xfkBbV {
+  background-color: transparent;
+  height: 5px;
+  left: 11px;
+  position: absolute;
+  top: 0px;
+  width: 4px;
+}
+.startuphubkhobar2 .path-z71s0a {
+  background-color: transparent;
+  height: 4px;
+  left: 3px;
+  position: absolute;
+  top: 0px;
+  width: 5px;
+}
+.startuphubkhobar2 .rectangle-copy-2-C61RwL {
+  align-items: center;
+  background-color: transparent;
+  bottom: 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 850px;
+  justify-content: center;
+  left: 24px;
+  position: absolute;
+  width: calc(100.00% - 48px);
+}
+.startuphubkhobar2 .shape-6JI463 {
+  background-color: transparent;
+  height: 11px;
+  left: 5px;
+  position: absolute;
+  top: 5px;
+  width: 11px;
+}
+.startuphubkhobar2 .twitter-copy-NOXmfT {
+  background-color: transparent;
+  background-image: url(../img/startup-hub-khobar-path-46481156-547C-467E-B096-3CCE734A7EC1@2x.png);
+  background-size: 100% 100%;
+  height: 21px;
+  left: 55px;
+  position: absolute;
+  top: 0px;
+  width: 25px;
+}
+.startuphubkhobar2 .u0645u062c-u0628-copy-C61RwL {
+  background-color: transparent;
+  font-size: 13px;
+  height: auto;
+  left: 24px;
+  line-height: 20px;
+  position: absolute;
+  text-align: center;
+  top: 89px;
+  width: calc(100.00% - 48px);
+}
+:root {
+  --quick-silver: rgba(165,165,165,1.0);
+  --white: rgba(255,255,255,1.0);
+}
+
+
+@font-face {
+        font-family: "FrutigerLTArabic-55Roman";
+        src: url("https://anima-uploads.s3.amazonaws.com/5c5174b816943b000ac488e0/FrutigerLTArabic-55Roman.ttf")
+          format("truetype");
+      }
+      .anima-component-wrapper a,
+      .anima-screen a {
+        text-decoration: none;
+        display: contents;
+      }
+
+      .anima-full-width-a {
+        width: 100%;
+      }
+
+      .anima-full-height-a {
+        height: 100%;
+      }
+
+      .anima-screen textarea:focus,
+      .anima-screen input:focus {
+        outline: none;
+      }
+
+      .anima-screen *,
+      .anima-component-wrapper * {
+        box-sizing: border-box;
+      }
+
+      .anima-screen div {
+        -webkit-text-size-adjust: none;
+      }
+
+      .anima-container-center-vertical,
+      .anima-container-center-horizontal {
+        pointer-events: none;
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        margin: 0;
+      }
+
+      .anima-container-center-vertical {
+        align-items: center;
+        height: 100%;
+      }
+
+      .anima-container-center-horizontal {
+        justify-content: center;
+        width: 100%;
+      }
+
+      .anima-container-center-vertical > *,
+      .anima-container-center-horizontal > * {
+        pointer-events: auto;
+        flex-shrink: 0;
+      }
+
+      .anima-component-wrapper,
+      .anima-screen {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        word-break: break-all;
+        word-break: break-word;
+      }
+
+      .anima-auto-animated div {
+        opacity: 0;
+        position: absolute;
+        --anima-z-index: -1;
+      }
+
+      .anima-auto-animated .anima-container-center-vertical,
+      .anima-auto-animated .anima-container-center-horizontal {
+        opacity: 1;
+      }
+
+      .anima-overlay {
+        position: absolute;
+        opacity: 0;
+        display: none;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+      }
+
+      .anima-animate-appear {
+        opacity: 0;
+        display: block;
+        animation: anima-reveal 0.3s ease-in-out 1 normal forwards;
+      }
+
+      .anima-animate-disappear {
+        opacity: 1;
+        display: block;
+        animation: anima-reveal 0.3s ease-in-out 1 reverse forwards;
+      }
+
+      .anima-animate-nodelay {
+        animation-delay: 0s;
+      }
+
+      @keyframes anima-reveal {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .align-self-flex-start {
+        align-self: flex-start;
+      }
+      .align-self-flex-end {
+        align-self: flex-end;
+      }
+      .align-self-flex-center {
+        align-self: center;
+      }
+      .anima-valign-text-middle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .anima-valign-text-bottom {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+      .anima-component-wrapper,
+      .anima-component-wrapper * {
+        pointer-events: none;
+      }
+
+      .anima-component-wrapper a *,
+      .anima-component-wrapper a,
+      .anima-component-wrapper input,
+      .anima-component-wrapper video,
+      .anima-component-wrapper iframe,
+      .anima-listeners-active,
+      .anima-listeners-active * {
+        pointer-events: auto;
+      }
+
+      .anima-hidden,
+      .anima-hidden * {
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      .anima-smart-layers-pointers,
+      .anima-smart-layers-pointers * {
+        pointer-events: auto;
+        visibility: visible;
+      }
+
+      .anima-component-wrapper.anima-not-ready,
+      .anima-component-wrapper.anima-not-ready * {
+        visibility: hidden !important;
+      }
+
+      .anima-listeners-active-click,
+      .anima-listeners-active-click * {
+        cursor: pointer;
+      }

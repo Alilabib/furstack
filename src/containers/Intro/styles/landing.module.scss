@@ -1,4 +1,4 @@
-@import '../../../assets/styles/mixins/responsive';
+@import "../../../assets/styles/mixins/responsive";
 .container {
   width: 90%;
   margin: auto;
@@ -10,7 +10,7 @@
 
 .section_title {
   text-align: center;
-  font-family: 'SF Pro Display Bold';
+  font-family: "SF Pro Display Bold";
   text-transform: uppercase;
   padding: 80px 0;
   font-size: 28px;
@@ -38,12 +38,12 @@
   }
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     width: 100%;
     height: 100%;
     background-color: #fff;
-    background-image: url('../../../assets/imgs/landing/bg.png');
+    background-image: url("../../../assets/imgs/landing/bg.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -93,7 +93,6 @@
           margin-left: auto;
         }
       }
-
     }
 
     span {
@@ -104,7 +103,7 @@
     span {
       color: #fff;
       margin-right: 30px;
-      font-family: 'SF Pro Display Regular';
+      font-family: "SF Pro Display Regular";
       font-weight: 600;
       display: flex;
       align-items: center;
@@ -119,7 +118,7 @@
         margin-right: 0;
       }
 
-      &>img {
+      & > img {
         width: 23px;
         margin-right: 8px;
 
@@ -154,7 +153,7 @@
         display: flex;
         justify-content: center;
 
-        &>img {
+        & > img {
           margin: 0;
         }
       }
@@ -285,7 +284,6 @@
           padding-bottom: 50px;
           margin-left: 50px;
 
-
           &:lang(ar) {
             padding-right: 0;
             padding-left: 80px;
@@ -295,7 +293,7 @@
 
         .our_app_text {
           color: #606f76;
-          font-family: 'SF Pro Display Bold';
+          font-family: "SF Pro Display Bold";
 
           text-align: center;
           margin-bottom: 30px;
@@ -314,7 +312,7 @@
             position: relative;
 
             &::before {
-              content: '';
+              content: "";
               width: 100%;
               height: 3px;
               border-radius: 2px;
@@ -324,7 +322,7 @@
               left: 0;
             }
 
-            &>img {
+            & > img {
               position: absolute;
               top: 0;
               right: 0;
@@ -422,17 +420,16 @@
         .head_title {
           color: #fff;
           font-weight: 600;
-          font-family: 'SF Pro Rounded';
+          font-family: "SF Pro Rounded";
           font-size: 2.5rem;
           margin-bottom: 0;
-
 
           @include mobile {
             font-size: 41px;
           }
 
           span {
-            color: #FFBB00;
+            color: #ffbb00;
           }
 
           img {
@@ -460,7 +457,6 @@
         }
       }
 
-
       .desc {
         color: #fff;
         line-height: 2;
@@ -480,7 +476,7 @@
         font-size: 1rem;
         margin-bottom: 20px;
         transition: 0.1s ease-in;
-
+margin-right: 8px;
         &:hover {
           background: lighten($color: #0091ff, $amount: 8%);
         }
@@ -560,14 +556,12 @@
           margin-left: 15px;
         }
       }
-
     }
   }
 }
 
 /* video section */
 .vidoSection {
-
   width: 70%;
   margin: 0 auto;
   margin-top: 100px;
@@ -598,7 +592,7 @@
 
   .section_title {
     font-size: 30px;
-    color: #0091FF !important;
+    color: #0091ff !important;
 
     @include mobile {
       font-size: 12px;
@@ -658,10 +652,10 @@
   }
 }
 
-
 /* Features section */
 .features {
-  background: transparent linear-gradient(180deg, #f8f8f8 0%, #ffffff 100%) 0% 0% no-repeat padding-box;
+  background: transparent linear-gradient(180deg, #f8f8f8 0%, #ffffff 100%) 0%
+    0% no-repeat padding-box;
   padding: 30px 15%;
 
   @include mobile {
@@ -698,9 +692,9 @@
       }
 
       &:last-child {
-        color: #0091FF;
+        color: #0091ff;
         font-size: 35px;
-        font-family: 'SF Pro Display Bold';
+        font-family: "SF Pro Display Bold";
         font-weight: bold;
         align-self: center;
 
@@ -711,7 +705,6 @@
         @include mobile {
           font-size: 12px;
         }
-
       }
 
       .icon {
@@ -733,7 +726,7 @@
 
       .item_title {
         color: #0091ff;
-        font-family: 'SF Pro Display Bold';
+        font-family: "SF Pro Display Bold";
         font-size: 16px;
         text-transform: uppercase;
         margin-bottom: 5px;
@@ -751,7 +744,7 @@
       .desc {
         text-align: center;
         color: #000;
-        font-family: 'SF Pro Display Light';
+        font-family: "SF Pro Display Light";
         font-size: 14px;
 
         @include mobile {
@@ -759,7 +752,6 @@
         }
       }
     }
-
   }
 }
 
@@ -803,7 +795,13 @@
       color: #dedede;
       margin-bottom: 0;
       margin-top: 20px;
-      font-family: 'SF Pro Display Bold';
+      font-family: "SF Pro Display Bold";
+      &:lang(ar) {
+        text-align: right;
+      }
+    }
+    &:lang(ar) {
+      text-align: right;
     }
   }
 
@@ -853,7 +851,7 @@
 
     .left {
       margin: 0 auto;
-      color: #E6E6E6;
+      color: #e6e6e6;
 
       @include tablet {
         display: flex;
@@ -869,9 +867,9 @@
         margin-top: 15px;
       }
 
-      &>* {
+      & > * {
         margin-right: 25px;
-        color: #E6E6E6;
+        color: #e6e6e6;
 
         &:lang(ar) {
           margin-right: 0;
@@ -908,11 +906,11 @@
         text-align: center;
       }
 
-      &>a {
+      & > a {
         display: inline-block;
       }
 
-      &>* {
+      & > * {
         margin-right: 25px;
 
         &:lang(ar) {
@@ -924,7 +922,7 @@
           margin-right: 0;
         }
 
-        &>svg {
+        & > svg {
           margin-right: 10px;
           font-size: 15px;
 
@@ -949,7 +947,6 @@
           line-height: 37px;
           margin-right: 10px;
           text-align: center;
-
         }
 
         @include tablet {

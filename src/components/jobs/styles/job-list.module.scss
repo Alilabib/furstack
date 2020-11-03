@@ -21,9 +21,9 @@
     padding-right: 15px;
 
     .job_title {
-      cursor: pointer;
       font-weight: 600;
       text-transform: capitalize;
+      cursor: pointer;
 
     }
 
@@ -47,16 +47,17 @@
 //   // white-space: nowrap;
 // }
 div:last-child:hover{
-  transform: perspective(300px) scale(3);
-  color:red;
+  // transform: perspective(300px) scale(2);
+  color:#C392FC;
 }
-
+div:last-child:focus{
+  border:none;
+}
 div:last-child {
   color:#C392FC;
   white-space: nowrap;
 overflow: hidden;
 text-overflow: ellipsis;
-
 }
 
     &:nth-child(even) {

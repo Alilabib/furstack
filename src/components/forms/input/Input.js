@@ -37,7 +37,7 @@ export default class Input extends Component {
             disabled={disabled}
             className={styles.input}
             placeholder={placeholder}
-            autoSize={{ minRows: 3, maxRows: 5 }}
+            autoSize={{ minRows: 5, maxRows: 7 }}
             onChange={onChange}
           />
         ) : (

@@ -10,6 +10,7 @@ import PublicRoute from "~hoc/PublicRoute";
 // Routes
 import Landing from "~containers/Intro/Landing";
 import LandingDemo from '~containers/Intro/LandingDemo'
+import ViewJobs from '~containers/Intro/ViewJobs'
 import Login from "~containers/Auth/Login";
 import ForgetPassword from "~containers/Auth/ForgetPassword";
 import Dashboard from "~containers/Dashboard/Dashboard";
@@ -27,6 +28,8 @@ import Pay from "~containers/Pay/Pay";
 import CheckPayment from "~containers/Pay/CheckPayment";
 import MyWebsite from "~containers/Dashboard/MyWebsite";
 import VerificationCompany from "~containers/Dashboard/VerificationCompany";
+import AllJobs from "../src/containers/Intro/AllJobs/AllJobs";
+import StartUpHub from '../src/containers/Intro/StartJobs/StartUpHub'
 import history from './history';
 
 function App() {
@@ -42,7 +45,10 @@ function App() {
           <Router history={history}>
 
       <Switch>
-      <Route exact path='/demo' component={LandingDemo} />
+       <Route exact path='/demo' component={LandingDemo} />
+        <Route exact path='/alljobs' component={AllJobs} />
+        <Route exact path='/startuphub' component={StartUpHub} />
+        <Route exact path='/view' component={ViewJobs} />
         <PublicRoute exact path='/' component={Landing} />
         <PublicRoute exact path='/demo' component={LandingDemo} />
         <PublicRoute exact path='/login' component={Login} />

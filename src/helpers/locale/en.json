@@ -6,6 +6,7 @@
       "description": "No more annoying emails or building google forms. Post a job on Fursatak app , manage candidates , sort, filter and pick the right one.",
       "button": {
         "create": "Start Hiring",
+        "view":"View Jobs",
         "sub_text": "See pricing"
       },
       "made_with": "MADE WITH LOVE",
@@ -319,7 +320,7 @@
     },
     "number_employer": {
       "label": "Size of Company",
-      "placeholder": "How many employees working with you ?"
+      "placeholder": "Size of Company"
     },
     "about_business": {
       "label": "Tell us about your business (company profile)",

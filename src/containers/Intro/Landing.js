@@ -38,7 +38,7 @@ import { setLocale } from "~helpers/locale/actions";
 
 class Landing extends Component {
   // switch between arabic and english
-  changeLang = lang => {
+  changeLang = (lang) => {
     const { languageActions } = this.props;
     languageActions.setLocale(lang);
   };
@@ -51,8 +51,8 @@ class Landing extends Component {
         <div className={styles.header}>
           {/* landing page head */}
           <div className={classnames(styles.head, styles.container)}>
-            <a className={styles.log_in} href='/login'>
-              <img src={Signin} alt='signin-icon' /> {t("landing.header.login")}
+            <a className={styles.log_in} href="/login">
+              <img src={Signin} alt="signin-icon" /> {t("landing.header.login")}
             </a>
 
             {/* switch between langaues */}
@@ -64,13 +64,16 @@ class Landing extends Component {
                 } else {
                   this.changeLang(languageOptions[0].value); // else change to english
                 }
-              }}>
-              {lang === "en" ? languageOptions[1].label : languageOptions[0].label}
+              }}
+            >
+              {lang === "en"
+                ? languageOptions[1].label
+                : languageOptions[0].label}
             </span>
 
             {/* head logo */}
-            <a href='/' className={styles.logo}>
-              <img src={Logo} alt='logo' />
+            <a href="/" className={styles.logo}>
+              <img src={Logo} alt="logo" />
             </a>
           </div>
 
@@ -84,15 +87,15 @@ class Landing extends Component {
                   <img
                     src={Mobile}
                     className={styles.iphone}
-                    alt='mobile wireframe'
-                    data-aos='zoom-in'
+                    alt="mobile wireframe"
+                    data-aos="zoom-in"
                   />
 
                   <img
                     src={Card}
                     className={styles.card}
-                    alt='mobile wireframe'
-                    data-aos='slide-left'
+                    alt="mobile wireframe"
+                    data-aos="slide-left"
                   />
                 </div>
               )}
@@ -103,14 +106,14 @@ class Landing extends Component {
                   <img
                     src={MobileAr}
                     className={styles.iphone}
-                    alt='mobile wireframe'
-                    data-aos='zoom-in'
+                    alt="mobile wireframe"
+                    data-aos="zoom-in"
                   />
                   <img
                     src={CardAr}
                     className={styles.card}
-                    alt='mobile wireframe'
-                    data-aos='slide-right'
+                    alt="mobile wireframe"
+                    data-aos="slide-right"
                   />
                 </div>
               )}
@@ -120,19 +123,19 @@ class Landing extends Component {
                 <div className={styles.our_app_text}>
                   <span>
                     {t("landing.header.jobs_available")}{" "}
-                    <img src={ArrowJobAvailable} alt='' />
+                    <img src={ArrowJobAvailable} alt="" />
                   </span>
                 </div>
 
                 <div className={styles.stores}>
-                  <a href='#'>
-                    <img src={HuaweiStore} alt='huawei app store' />{" "}
+                  <a href="#">
+                    <img src={HuaweiStore} alt="huawei app store" />{" "}
                   </a>
-                  <a href='#'>
-                    <img src={GooglePlay} alt='google play' />{" "}
+                  <a href="#">
+                    <img src={GooglePlay} alt="google play" />{" "}
                   </a>
-                  <a href='#'>
-                    <img src={AppStore} alt='app store' />{" "}
+                  <a href="#">
+                    <img src={AppStore} alt="app store" />{" "}
                   </a>
                 </div>
               </div>
@@ -144,18 +147,26 @@ class Landing extends Component {
                 <div className={styles.head_title_section}>
                   <h2 className={styles.head_title}>
                     Hire <span>{t("landing.header.title")}</span> with less time
-                    <img src={Thumblike} alt='' />
+                    <img src={Thumblike} alt="" />
                   </h2>
-                  <img className={styles.under_line} src={TitleUnderline} alt='' />
+                  <img
+                    className={styles.under_line}
+                    src={TitleUnderline}
+                    alt=""
+                  />
                 </div>
               )}
               {lang === "ar" && (
                 <div className={styles.head_title_section}>
                   <h2 className={styles.head_title}>
                     {t("landing.header.title")}
-                    <img src={Thumblike} alt='' />
+                    <img src={Thumblike} alt="" />
                   </h2>
-                  <img className={styles.under_line} src={TitleUnderline} alt='' />
+                  <img
+                    className={styles.under_line}
+                    src={TitleUnderline}
+                    alt=""
+                  />
                 </div>
               )}
               <p className={styles.desc}>{t("landing.header.description")}</p>
@@ -163,8 +174,8 @@ class Landing extends Component {
               {/* start hiring button */}
               {lang === "en" && (
                 <>
-                  <Link to='/registration'>
-                    <button type='button' className={styles.create_account}>
+                  <Link to="/registration">
+                    <button type="button" className={styles.create_account}>
                       {t("landing.header.button.create")}
                       <FontAwesomeIcon
                         className={styles.arrow}
@@ -172,8 +183,21 @@ class Landing extends Component {
                       />
                     </button>
                   </Link>
+                </>
+              )}
 
-                  <Link to='/registration/plan' className={styles.price}>
+              {lang === "en" && (
+                <>
+                  <Link to="/view">
+                    <button type="button" className={styles.create_account}>
+                      {t("landing.header.button.view")}
+                      <FontAwesomeIcon
+                        className={styles.arrow}
+                        icon={["fas", "arrow-right"]}
+                      />
+                    </button>
+                  </Link>
+                  <Link to="/registration/plan" className={styles.price}>
                     {t("landing.header.button.sub_text")}
                   </Link>
                 </>
@@ -181,8 +205,8 @@ class Landing extends Component {
 
               {lang === "ar" && (
                 <>
-                  <Link to='/registration'>
-                    <button type='button' className={styles.create_account}>
+                  <Link to="/registration">
+                    <button type="button" className={styles.create_account}>
                       {t("landing.header.button.create")}
                       <FontAwesomeIcon
                         className={styles.arrow}
@@ -191,7 +215,7 @@ class Landing extends Component {
                     </button>
                   </Link>
 
-                  <Link to='/registration/plan' className={styles.price}>
+                  <Link to="/registration/plan" className={styles.price}>
                     {t("landing.header.button.sub_text")}
                   </Link>
                 </>
@@ -200,7 +224,7 @@ class Landing extends Component {
 
             {/* made with love in SA */}
             <div className={styles.made_with}>
-              <img src={Flag} alt='hearth' />
+              <img src={Flag} alt="hearth" />
               <div className={styles.text}>
                 <p>{t("landing.header.made_with")}</p>
                 <p>{t("landing.header.made_from")}</p>
@@ -212,68 +236,86 @@ class Landing extends Component {
         {/* presentation video section */}
         <div className={styles.vidoSection}>
           <video controls>
-            <source src='mov_bbb.mp4' type='video/mp4' />
-            <source src='mov_bbb.ogg' type='video/ogg' />
+            <source src="mov_bbb.mp4" type="video/mp4" />
+            <source src="mov_bbb.ogg" type="video/ogg" />
             Your browser does not support HTML video.
           </video>
         </div>
 
         {/* partners section */}
         <div className={styles.partners}>
-          <h2 className={styles.section_title}>{t("landing.section.title.trust")}</h2>
+          <h2 className={styles.section_title}>
+            {t("landing.section.title.trust")}
+          </h2>
           <div className={classnames(styles.partner_list, styles.container)}>
             {[0, 0, 0, 0, 0, 0, 0, 0].map((item, index) => (
-              <div className={styles.item} data-aos='flip-up'>
+              <div className={styles.item} data-aos="flip-up">
                 <img
-                  src='https://cdn.vox-cdn.com/thumbor/VSSwGPlTwiV0AY5zL9Afu7KGpno=/0x28:640x388/1600x900/cdn.vox-cdn.com/assets/1311169/mslogo.jpg'
-                  alt='partner image'
+                  src="https://cdn.vox-cdn.com/thumbor/VSSwGPlTwiV0AY5zL9Afu7KGpno=/0x28:640x388/1600x900/cdn.vox-cdn.com/assets/1311169/mslogo.jpg"
+                  alt="partner image"
                 />
               </div>
             ))}
           </div>
           {/* try out services button */}
-          <Link to='/registration'>
-            <button type='button' className={styles.try_services}>
+          <Link to="/registration">
+            <button type="button" className={styles.try_services}>
               {t("landing.section.title.try")}
-              <FontAwesomeIcon className={styles.arrow} icon={["fas", "arrow-right"]} />
+              <FontAwesomeIcon
+                className={styles.arrow}
+                icon={["fas", "arrow-right"]}
+              />
             </button>
           </Link>
         </div>
 
         {/* feautures section */}
         <div className={styles.features}>
-          <h2 className={styles.section_title}>{t("landing.section.title.why")}</h2>
+          <h2 className={styles.section_title}>
+            {t("landing.section.title.why")}
+          </h2>
           <div className={classnames(styles.items)}>
             {[
               {
                 title: t("landing.section.features.title.easy_to_use"),
                 icon: Easytouse,
-                description: t("landing.section.features.description.easy_to_use")
+                description: t(
+                  "landing.section.features.description.easy_to_use"
+                ),
               },
               {
                 title: t("landing.section.features.title.people_around"),
                 icon: PeopleLocation,
-                description: t("landing.section.features.description.people_around")
+                description: t(
+                  "landing.section.features.description.people_around"
+                ),
               },
               {
                 title: t("landing.section.features.title.effictive"),
                 icon: EffectiveFilter,
-                description: t("landing.section.features.description.effictive")
+                description: t(
+                  "landing.section.features.description.effictive"
+                ),
               },
               {
                 title: t("landing.section.features.title.privacy"),
                 icon: Privacy,
-                description: t("landing.section.features.description.privacy")
+                description: t("landing.section.features.description.privacy"),
               },
               {
                 title: t("landing.section.features.title.interview"),
                 icon: CoWorkers,
-                description: t("landing.section.features.description.interview")
-              }
+                description: t(
+                  "landing.section.features.description.interview"
+                ),
+              },
             ].map((item, index) => (
               <div className={styles.item} key={index}>
-                <div className={styles.icon} style={item.iconWrapperStyle || {}}>
-                  <img src={item.icon} alt='feature' />
+                <div
+                  className={styles.icon}
+                  style={item.iconWrapperStyle || {}}
+                >
+                  <img src={item.icon} alt="feature" />
                 </div>
                 <p className={styles.item_title}>{item.title}</p>
                 <p className={styles.desc}>{item.description}</p>
@@ -293,34 +335,33 @@ class Landing extends Component {
             <div className={styles.copyright}>
               <div className={styles.right}>
                 <div className={styles.social}>
-                  <div className={styles.socialItem}>
-                    <a href='#'>
+                  <a href="#">
+                    <div className={styles.socialItem}>
                       <FontAwesomeIcon icon={["fab", "snapchat-ghost"]} />
-                    </a>
-                  </div>
-
-                  <div className={styles.socialItem}>
-                    <a href='#'>
+                    </div>
+                  </a>
+                  <a href="#">
+                    <div className={styles.socialItem}>
                       <FontAwesomeIcon icon={["fab", "twitter"]} />
-                    </a>
-                  </div>
-                  <div className={styles.socialItem}>
-                    <a href='#'>
+                    </div>
+                  </a>
+                  <a href="#">
+                    <div className={styles.socialItem}>
                       <FontAwesomeIcon icon={["fab", "instagram"]} />
-                    </a>
-                  </div>
-                  <div className={styles.socialItem}>
-                    <a href='#'>
+                    </div>
+                  </a>
+                  <a href="#">
+                    <div className={styles.socialItem}>
                       <FontAwesomeIcon icon={["fab", "telegram-plane"]} />
-                    </a>
-                  </div>
+                    </div>
+                  </a>
                 </div>
               </div>
             </div>
 
             {/* logo */}
             <div className={styles.logo}>
-              <img src={Logo} alt='logo' />
+              <img src={Logo} alt="logo" />
             </div>
 
             {/* about */}
@@ -330,14 +371,14 @@ class Landing extends Component {
               <p>{t("landing.footer.vision")}</p>
             </div>
             <div className={styles.rubber}>
-              <img src={Rubber} alt='rubber' />
+              <img src={Rubber} alt="rubber" />
             </div>
             <div className={styles.copyright}>
               <div className={styles.left}>
                 <p>{t("landing.footer.copyright")}</p>
-                <a href='#'>{t("landing.footer.links.privacy")}</a>
-                <a href='#'>{t("landing.footer.links.terms")}</a>
-                <a href='#'>{t("landing.footer.links.faq")}</a>
+                <a href="#">{t("landing.footer.links.privacy")}</a>
+                <a href="#">{t("landing.footer.links.terms")}</a>
+                <a href="#">{t("landing.footer.links.faq")}</a>
               </div>
             </div>
           </div>
@@ -347,12 +388,15 @@ class Landing extends Component {
   }
 }
 
-const mapStateToProps = store => ({
-  lang: store.locale.lang
+const mapStateToProps = (store) => ({
+  lang: store.locale.lang,
 });
 
-const mapDispatchToProps = dispatch => ({
-  languageActions: bindActionCreators({ setLocale }, dispatch)
+const mapDispatchToProps = (dispatch) => ({
+  languageActions: bindActionCreators({ setLocale }, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(withNamespaces()(Landing));
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withNamespaces()(Landing));

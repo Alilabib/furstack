@@ -77,7 +77,7 @@ class HeaderDark extends Component {
       <div className={styles.header}>
         <div className={styles.container}>
           <div className={styles.logo_container}>
-            <Link to='/dashboard' className={styles.logo}>
+            <Link to={userData?'/dashboard':"/"} className={styles.logo}>
               <img src={LogoWhiteBlue} alt='logo' />
             </Link>
           </div>

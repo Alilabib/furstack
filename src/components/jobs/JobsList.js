@@ -3,12 +3,18 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { withNamespaces } from "react-i18next";
 import { Tooltip } from "antd";
-import { ArrowsAltOutlined, RedoOutlined, FormOutlined, DeleteOutlined } from "@ant-design/icons";
+import {
+  ArrowsAltOutlined,
+  RedoOutlined,
+  FormOutlined,
+  DeleteOutlined,
+} from "@ant-design/icons";
 import classnames from "classnames";
+import { Button, Popup } from "semantic-ui-react";
 import moment from "moment";
 import postNote from "../../containers/Jobs/actions/postNote";
 import styles from "./styles/job-list.module.scss";
-
+import ReactTooltip from "react-tooltip";
 const Actions = (props) => {
   const { items = [] } = props;
   const { postNote } = props;
@@ -56,7 +62,8 @@ class JobsList extends PureComponent {
           </div>
         )}
         {data.map((job, index) => (
-          <div key={job.id} className={classnames(styles.row)}>
+          <div key={job.id} className={classnames(styles.row)}
+          >
             {[
               <span
                 className={styles.job_title}
@@ -67,11 +74,37 @@ class JobsList extends PureComponent {
                 {job.title}
               </span>,
               job.active ? "Open" : "Close",
-              job.Addresses && job.Addresses.length && job.Addresses[0].Governorate > 0 ? job.Addresses[0].Governorate.name.en : "Not set",
+              job.Addresses &&
+              job.Addresses.length &&
+              job.Addresses[0].Governorate > 0
+                ? job.Addresses[0].Governorate.name.en
+                : "Not set",
               moment(job.expected_hiring_date).format("ll"),
               job.PostUsers.length,
               job.note ? (
-                <span className={styles.note}>{job.note}</span>
+                <div>
+                  <Popup
+                    trigger={<span className={styles.note}>{job.note}</span>}
+                    position="top left"
+                    data-variation="huge"
+                    data-variation="very wide"
+                  style={{backgroundColor:'#4CAF50',
+                marginBottom:'8px',
+                border: 'none',
+                color: 'white',
+                padding: '15px 15px',
+                textAlign: 'left',
+                textDecoration: 'none',
+                display: 'inline-block',
+                fontSize: '14px',
+                cursor: 'pointer',
+                borderRadius:'6px'
+                }}
+                  >
+                    {" "}
+                    {job.note}
+                  </Popup>
+                </div>
               ) : (
                 <input
                   type="text"
@@ -127,4 +160,7 @@ const mapDispatchToProps = (dispatch) => ({
   noteaActions: bindActionCreators({ postNote }, dispatch),
 });
 
-export default connect((state) => state, mapDispatchToProps)(withNamespaces()(JobsList));
+export default connect(
+  (state) => state,
+  mapDispatchToProps
+)(withNamespaces()(JobsList));

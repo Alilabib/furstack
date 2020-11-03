@@ -2,12 +2,15 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { show } from "redux-modal";
-import { message as notify, Popover } from "antd";
+import { message as notify, Popover, Radio } from "antd";
+import { Menu, Dropdown } from "antd";
+import { DownOutlined } from "@ant-design/icons";
 import classnames from "classnames";
 import { withNamespaces } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Scrollbars } from "react-custom-scrollbars";
 import getPostDetails from "../Jobs/actions/getPostDetails";
+// import {} from 'semantic-ui-react'
 // Styles
 import styles from "./styles/job-detail.module.scss";
 
@@ -32,14 +35,28 @@ import userMoveToCategory from "./actions/userMoveToCategory";
 
 const queryString = require("query-string");
 
+const content = (
+  <div>
+    <p>Content</p>
+    <p>Content</p>
+  </div>
+);
+let menu;
 class JobDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
       search: "",
       data: {},
+      type: "",
     };
   }
+
+  handleChange = (event) => {
+    this.setState({
+      type: event.target.value,
+    });
+  };
 
   /* handle select one candidate under a job and fetches his data */
   handleSelecteCandidate = (candidate) => {
@@ -83,7 +100,8 @@ class JobDetail extends Component {
   /* handle select users */
   handleCheckAllUser = () => {
     const { jobDetailData, jobCandidate, jobDetailActions } = this.props;
-    const isAllSelected = jobDetailData.checkedUsers.length === jobCandidate.length;
+    const isAllSelected =
+      jobDetailData.checkedUsers.length === jobCandidate.length;
 
     if (isAllSelected) {
       jobDetailActions.setJobDetailData({
@@ -102,7 +120,9 @@ class JobDetail extends Component {
   handleChangeCheckdUser = (user) => {
     const { jobDetailData, jobDetailActions } = this.props;
 
-    const data = jobDetailData.checkedUsers ? jobDetailData.checkedUsers.slice() : [];
+    const data = jobDetailData.checkedUsers
+      ? jobDetailData.checkedUsers.slice()
+      : [];
     const dataId = data.map((item) => item.id);
     const findItem = dataId.indexOf(user.id);
 
@@ -121,7 +141,9 @@ class JobDetail extends Component {
   /* handle move a user to a list */
   handleMoveUserToCategory = (folder = {}) => {
     const { match, jobDetailData, jobDetailActions } = this.props;
-    const userIds = jobDetailData.checkedUsers ? jobDetailData.checkedUsers.map((item) => item.id) : [];
+    const userIds = jobDetailData.checkedUsers
+      ? jobDetailData.checkedUsers.map((item) => item.id)
+      : [];
     const data = {
       users_id: userIds,
       job_id: match?.params?.id,
@@ -147,11 +169,11 @@ class JobDetail extends Component {
   };
 
   componentDidMount() {
-    const { jobsActions, jobDetailActions, match,postActions } = this.props;
+    const { jobsActions, jobDetailActions, match, postActions } = this.props;
     this.handleGetCandidate();
     jobsActions.getJobsList();
     jobDetailActions.getCustomCategories({ job_id: match?.params?.id });
-    this.getJobsData(match,postActions,jobDetailActions)
+    this.getJobsData(match, postActions, jobDetailActions);
   }
 
   componentWillUnmount() {
@@ -162,13 +184,13 @@ class JobDetail extends Component {
     });
   }
 
-  getJobsData = async (match,postActions,jobDetailActions) => {
+  getJobsData = async (match, postActions, jobDetailActions) => {
     await postActions.getPostDetails(match?.params?.id, {
       success: (response) => {
         const { message, data } = response;
         jobDetailActions.setJobDetailData({
           data,
-        })
+        });
       },
       fail: (response) => {
         const { message } = response;
@@ -196,7 +218,12 @@ class JobDetail extends Component {
 
     return (
       <div>
-        <HeaderJobDetail data={jobsList} jobId={match?.params?.id} postId={match?.params?.id} postDetails={this.state.data} />
+        <HeaderJobDetail
+          data={jobsList}
+          jobId={match?.params?.id}
+          postId={match?.params?.id}
+          postDetails={this.state.data}
+        />
         <LoadingWrapper isLoading={isLoadingJobCandidate}>
           <DetailHeader
             selected={jobDetailData.selectedUser}
@@ -215,10 +242,18 @@ class JobDetail extends Component {
               <div className={styles.board_content}>
                 <div className={styles.left_side}>
                   <div className={styles.search}>
-                    {!!(jobDetailData.checkedUsers && jobDetailData.checkedUsers.length) && (
+                    {!!(
+                      jobDetailData.checkedUsers &&
+                      jobDetailData.checkedUsers.length
+                    ) && (
                       <div className={styles.selected_all}>
                         <button type="button" onClick={this.handleCheckAllUser}>
-                          {!!(jobDetailData.checkedUsers.length === jobCandidate.length) ? "Deselect all" : "Select all"}
+                          {!!(
+                            jobDetailData.checkedUsers.length ===
+                            jobCandidate.length
+                          )
+                            ? "Deselect all"
+                            : "Select all"}
                         </button>
                       </div>
                     )}
@@ -243,18 +278,347 @@ class JobDetail extends Component {
 
                   {/* filter and sort */}
                   <div className={styles.filter_sort}>
-                    <Popover trigger="click">
-                      <span className={styles.sort}>
+                    {/* <Popover trigger="click" content={content}>
+                      <span className="">
                         <FontAwesomeIcon icon={["fas", "sort-alpha-down"]} />
                         Sort
                       </span>
-                    </Popover>
-
+                    </Popover> */}
+                    <Dropdown
+                      overlay={
+                        <Menu>
+                          <Menu.Item>
+                            <label>
+                              <input
+                                type="radio"
+                                value="NewToOld"
+                                checked={this.state.type === "NewToOld"}
+                                onChange={this.handleChange}
+                                style={{ marginRight: "6px" }}
+                              />
+                              New to Old
+                            </label>
+                          </Menu.Item>
+                          <Menu.Item>
+                            <label>
+                              <input
+                                type="radio"
+                                value="OldToNew"
+                                checked={this.state.type === "OldToNew"}
+                                onChange={this.handleChange}
+                                style={{ marginRight: "6px" }}
+                              />
+                              Old to New
+                            </label>
+                          </Menu.Item>
+                          <Menu.Item>
+                            <label>
+                              <input
+                                type="radio"
+                                value="NearByDammamFirst"
+                                checked={
+                                  this.state.type === "NearByDammamFirst"
+                                }
+                                onChange={this.handleChange}
+                                style={{ marginRight: "6px" }}
+                              />
+                              Near ByDammam First
+                            </label>
+                          </Menu.Item>
+                          <Menu.Item>
+                            <label>
+                              <input
+                                type="radio"
+                                value="UnreadFirst"
+                                checked={this.state.type === "UnreadFirst"}
+                                onChange={this.handleChange}
+                                style={{ marginRight: "6px" }}
+                              />
+                              Unread First
+                            </label>
+                          </Menu.Item>
+                          <Menu.Item>
+                            <label>
+                              <input
+                                type="radio"
+                                value="WithCommentsFirst"
+                                checked={
+                                  this.state.type === "WithCommentsFirst"
+                                }
+                                onChange={this.handleChange}
+                                style={{ marginRight: "6px" }}
+                              />
+                              With Comments First
+                            </label>
+                          </Menu.Item>
+                        </Menu>
+                      }
+                      trigger={["click"]}
+                    >
+                      <span
+                        className="ant-dropdown-link"
+                        onClick={(e) => e.preventDefault()}
+                      >
+                        <FontAwesomeIcon icon={["fas", "sort-alpha-down"]} />
+                        Sort
+                      </span>
+                      {/* <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+      Hover me <DownOutlined />
+    </a> */}
+                    </Dropdown>
+                    {/* ,
                     <span className={styles.filter}>
                       {" "}
                       <FontAwesomeIcon icon={["fas", "filter"]} />
                       Filter
-                    </span>
+                    </span> */}
+
+
+
+                    <Dropdown
+                    
+                      overlay={
+                        
+                        <Menu style={{ width: "900px" }}>
+                          <div style={{display:'flex' ,
+                          flexDirection:'row',color:'#0091FF',
+                          marginTop:'5px', justifyContent:'center'}}>
+                        <FontAwesomeIcon icon={["fas", "filter"]} className="mt-1 mr-1" />
+                          <p>Anyone doesn't match filtration requirements, will be auto-rejected</p>
+                          </div>
+                          <div className="ml-3 mb-2">
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "row",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  width: "25%",
+                                  border: "1px solid #CFD3D5",
+                                  padding: "1px 5px",
+                                }}
+                              >
+                                Working Status
+                              </div>
+                              <label style={{width:'20%',textAlign:'center',textAlign:'center'}}>Is</label>
+                              <select class="ui dropdown ml-2" style={{width:'130px',border:'1px solid #CFD3D5'}}>
+                                <option value="">Gender</option>
+                                <option value="1">Male</option>
+                                <option value="0">Female</option>
+                              </select>
+                              <label style={{width:'20%',textAlign:'center'}}>Is</label>
+                              <select class="ui dropdown ml-2" style={{width:'130px',border:'1px solid #CFD3D5'}}>
+                                <option value="">Gender</option>
+                                <option value="1">Male</option>
+                                <option value="0">Female</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div className="ml-3 mb-2">
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "row",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  width: "25%",
+                                  border: "1px solid #CFD3D5",
+                                  padding: "1px 5px",
+                                }}
+                              >
+                                Age
+                              </div>
+                              <label  style={{width:'20%',textAlign:'center'}}>Is between</label>
+
+                              <select class="ui dropdown ml-2" style={{width:'130px',border:'1px solid #CFD3D5'}}>
+                                <option value="">Gender</option>
+                                <option value="1">Male</option>
+                                <option value="0">Female</option>
+                              </select>
+                              <label  style={{width:'20%',textAlign:'center'}}>Is between</label>
+                              <select class="ui dropdown ml-2" style={{width:'130px',border:'1px solid #CFD3D5'}}>
+                                <option value="">Gender</option>
+                                <option value="1">Male</option>
+                                <option value="0">Female</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div className="ml-3 mb-2">
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "row",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  width: "25%",
+                                  border: "1px solid #CFD3D5",
+                                  padding: "1px 5px",
+                                }}
+                              >
+                                Gender
+                              </div>
+                              <label  style={{width:'20%',textAlign:'center'}}>Is</label>
+                              <select class="ui dropdown ml-2" style={{width:'130px',border:'1px solid #CFD3D5'}}>
+                                <option value="">Gender</option>
+                                <option value="1">Male</option>
+                                <option value="0">Female</option>
+                              </select>
+                              <label  style={{width:'20%',textAlign:'center'}}>Is between</label>
+                              <select class="ui dropdown ml-2" style={{width:'130px',border:'1px solid #CFD3D5'}}>
+                                <option value="">Gender</option>
+                                <option value="1">Male</option>
+                                <option value="0">Female</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div className="ml-3 mb-2">
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "row",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  width: "25%",
+                                  border: "1px solid #CFD3D5",
+                                  padding: "1px 5px",
+                                }}
+                              >
+                                Nationality
+                              </div>
+                              <label  style={{width:'20%',textAlign:'center'}}>Is</label>
+                              <select class="ui dropdown ml-2" style={{width:'130px',border:'1px solid #CFD3D5'}}>
+                                <option value="">Saudi</option>
+                                <option value="1">Non-Saudi</option>
+                              </select>
+                              <label  style={{width:'20%',textAlign:'center'}}>Is between</label>
+                              <select class="ui dropdown ml-2" style={{width:'130px',border:'1px solid #CFD3D5'}}>
+                                <option value="">Saudi</option>
+                                <option value="1">Non-Saudi</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div className="ml-3 mb-2">
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "row",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  width: "25%",
+                                  border: "1px solid #CFD3D5",
+                                  padding: "1px 5px",
+                                }}
+                              >
+                                Level Of Experience
+                              </div>
+                              <label  style={{width:'20%',textAlign:'center'}}>Is</label>
+                              <select class="ui dropdown ml-2" style={{width:'130px',border:'1px solid #CFD3D5'}}>
+                                <option value="">Fresh Graduate</option>
+                                <option value="1">1-2 years</option>
+                                <option value="0">3-5 years</option>
+                                <option value="0"> 6-10 years</option>
+                                <option value="0"> +10 years</option>
+                              </select>
+                              <label  style={{width:'20%',textAlign:'center'}}>Is between</label>
+                              <select class="ui dropdown ml-2" style={{width:'130px',border:'1px solid #CFD3D5'}}>
+                                <option value="">Fresh Graduate</option>
+                                <option value="1">1-2 years</option>
+                                <option value="0">3-5 years</option>
+                                <option value="0"> 6-10 years</option>
+                                <option value="0"> +10 years</option>
+                              </select>
+                            </div>
+                          </div>
+
+                          <div className="ml-3 mb-2">
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "row",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  width: "25%",
+                                  border: "1px solid #CFD3D5",
+                                  padding: "1px 5px",
+                              
+                                }}
+                              >
+                                Graduation Date
+                              </div>
+                              <label  style={{width:'20%',textAlign:'center'}}>Is minimum</label>
+                              <select class="ui dropdown ml-2" style={{width:'130px',border:'1px solid #CFD3D5'}}>
+                                <option value="">Gender</option>
+                                <option value="1">Male</option>
+                                <option value="0">Female</option>
+                              </select>
+                              <label  style={{width:'20%',textAlign:'center'}}>Is between</label>
+                              <select class="ui dropdown ml-2" style={{width:'130px',border:'1px solid #CFD3D5'}}>
+                                <option value="">Gender</option>
+                                <option value="1">Male</option>
+                                <option value="0">Female</option>
+                              </select>
+                            </div>
+                          </div>
+
+                          <div className="ml-3 mb-2">
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "row",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  width: "25%",
+                                  border: "1px solid #CFD3D5",
+                                  padding: "1px 5px",
+                                }}
+                              >
+                                Working Status
+                              </div>
+                              <label  style={{width:'20%',textAlign:'center'}}>Is between</label>
+                              <select class="ui dropdown ml-2" style={{width:'130px',border:'1px solid #CFD3D5'}}>
+                                <option value="">Gender</option>
+                                <option value="1">Male</option>
+                                <option value="0">Female</option>
+                              </select>
+                              <label  style={{width:'20%',textAlign:'center'}}>Is between</label>
+                              <select class="ui dropdown ml-2" style={{width:'130px',border:'1px solid #CFD3D5'}}>
+                                <option value="">Gender</option>
+                                <option value="1">Male</option>
+                                <option value="0">Female</option>
+                              </select>
+                            </div>
+                          </div>
+                        </Menu>
+                      }
+                      trigger={["click"]}
+                    >
+                      <span
+                        className="ant-dropdown-link"
+                        onClick={(e) => e.preventDefault()}
+                      >
+                        <FontAwesomeIcon icon={["fas", "filter"]} />
+                        Filter
+                      </span>
+                      {/* <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+      Hover me <DownOutlined />
+    </a> */}
+
+                    </Dropdown>
+
                     <span className={styles.passed}>Passed</span>
                   </div>
 
@@ -275,7 +639,11 @@ class JobDetail extends Component {
                   </Scrollbars>
                 </div>
 
-                <JobDetailContentUser isLoading={isLoadingCandidateDetail} selected={jobDetailData.selectedUser} candidatesNumber={jobCandidate} />
+                <JobDetailContentUser
+                  isLoading={isLoadingCandidateDetail}
+                  selected={jobDetailData.selectedUser}
+                  candidatesNumber={jobCandidate}
+                />
 
                 <div>Comments</div>
               </div>
@@ -322,4 +690,7 @@ const mapDispatchToProps = (dispatch) => ({
   postActions: bindActionCreators({ getPostDetails }, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(withNamespaces()(JobDetail));
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withNamespaces()(JobDetail));
