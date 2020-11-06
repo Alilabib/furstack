@@ -16,9 +16,11 @@ import { Step1, Step2 } from "./steps";
 import { Avatar, Input, Select, FormWrapper, Button } from "~components/forms";
 
 // Actions
+
 import setRegistrationData from './actions/setRegistrationData';
 import createCompany from './actions/createCompany';
 import authCompany from '../Auth/actions/authCompany';
+
 import TextArea from "antd/lib/input/TextArea";
 
 class Registration extends Component {
@@ -46,7 +48,10 @@ class Registration extends Component {
   }
   onSubmit = () => {
     const { registrationData, registrationActions } = this.props;
-    const { email = '', password = '', rePassword = '' } = registrationData;
+
+    console.warn(registrationData);
+    const { email = "", password = "", rePassword = "" } = registrationData;
+
 
     const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (!email.match(mailformat)) {
