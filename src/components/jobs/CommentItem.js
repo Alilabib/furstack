@@ -24,7 +24,7 @@ export default class CommentItem extends PureComponent {
             <img src={Person} />
           </div>
           <div style={{ display: "flex", flexDirection: "column" }} className="ml-2">
-            <span style={{ fontSize: "12px", fontWeight: "bold" }}>{comment.PostUser.User.name}</span>
+            {/* <span style={{ fontSize: "12px", fontWeight: "bold" }}>{comment.PostUser.User.name}</span> */}
             <span style={{ fontSize: "12px" }}>12 days ago </span>
           </div>
         </div>

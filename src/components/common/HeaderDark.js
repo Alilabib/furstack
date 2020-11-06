@@ -10,7 +10,7 @@ import { withRouter } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Progress } from "antd";
 import "./styles/header.module.scss";
-
+import Career from '../../assets/imgs/carreer.png'
 // Assets
 import LogoWhiteBlue from "~assets/imgs/logo_white_blue.svg";
 import GiftIcon from "~assets/imgs/gift.svg";
@@ -37,6 +37,7 @@ const LoginView = ({ actions, userData, t, history }) => {
           if (!isProUser) goToPay();
         }}>
         <FontAwesomeIcon icon={["fas", "infinity"]} /> <span>Unlimited Posts</span>
+
         <Progress
           className={styles.progressBar}
           percent={(100 / 14) * daysLeft}
@@ -45,7 +46,10 @@ const LoginView = ({ actions, userData, t, history }) => {
         />
         <div className={styles.days_left}>{daysLeft} Days left</div>
       </div>
-
+      <div>
+      <img src={Career} alt="Career" style={{marginLeft:'50px'}}/> 
+        <div style={{fontSize:'15px'}}>Your Career Page</div>
+      </div>
       <div className={styles.signOut} onClick={actions.logout }>
         <FontAwesomeIcon icon={["fas", "sign-out-alt"]} />
         <div>Logout</div>
@@ -83,6 +87,7 @@ class HeaderDark extends Component {
           </div>
           <div className={styles.nav_container}>
             {userData ? (
+              <div>
               <LoginView
                 userData={userData}
                 actions={{
@@ -91,6 +96,7 @@ class HeaderDark extends Component {
                 t={t}
                 history={history}
               />
+              </div>
             ) : (
               <div>
                 {!userData && (

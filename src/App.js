@@ -46,13 +46,14 @@ function App() {
     <>
       <Router history={history}>
         <Switch>
-          <Route exact path="/demo" component={LandingDemo} />
+          <Route exact path="/demo" component={Landing} />
           <Route exact path="/alljobs" component={AllJobs} />
           <Route exact path="/company/carear/:id" component={Carear} />
           <Route exact path="/startuphub" component={StartUpHub} />
+          <Route exact path="/starthiring" component={StartHiring} />
+
           <Route exact path="/view" component={ViewJobs} />
-          <PublicRoute exact path="/" component={Landing} />
-          <PublicRoute exact path="/demo" component={LandingDemo} />
+          <PublicRoute exact path="/" component={LandingDemo} />
           <PublicRoute exact path="/login" component={Login} />
           <PublicRoute exact path="/forget-password" component={ForgetPassword} />
           <Route exact path="/activate" component={ActivateUser} />

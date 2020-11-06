@@ -24,19 +24,19 @@ class LandingDemo extends Component {
             </div>
           </div>
           <div className="row mb-5">
-            {/* <div className="col-md-3 col-sm-12 text-center"
+            <div className="col-md-3 col-sm-12 text-center"
            >
 
-              <img src={iphone} alt="iphone" className={styles.iphoneimg} />
+              {/* <img src={iphone} alt="iphone" className={styles.iphoneimg} />
               <div className={styles.imgPar}>
                 <img
                   src={fursatac}
                   alt="fursatac"
                   className={styles.fursatacimg}
                 />
-              </div>
               </div> */}
-            <div className="col-md-6 col-sm-12">
+              </div>
+            <div className="col-md-6 col-sm-12 text-center">
               <div>
                 <h1 className={styles.title}>
                   <img src={Thumblike} alt="" className={styles.thumblike} />
