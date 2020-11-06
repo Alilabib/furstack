@@ -5,6 +5,7 @@ import {
   UPDATE_QUIZZ_OPTIONS,
   REMOVE_QUIZZ_OPTIONS,
   GET_JOB_LIST,
+  GET_CAREAR_LIST,
   SET_JOB_DATA,
   CLEAR_JOB_DATA,
   GET_COMPANY_ADDRESS,
@@ -19,12 +20,12 @@ import {
   ADD_COMMENT,
   CREATE_CUSTOM_CATEGORY,
   GET_CUSTOM_CATEGORIES,
-  GET_JOB_CATEGORY
+  GET_JOB_CATEGORY,
 } from "../actions/constants";
 
 const initialState = {
   addJobData: {
-    features: []
+    features: [],
   },
   jobDetailData: {},
   isLoadingCustomCategory: 0,
@@ -58,8 +59,8 @@ const initialState = {
     multiple: [],
     evaluation: [],
     "video-recording": [],
-    basicFilter: []
-  }
+    basicFilter: [],
+  },
 };
 
 const jobsReducer = (state = initialState, { payload, type }) => {
@@ -67,7 +68,7 @@ const jobsReducer = (state = initialState, { payload, type }) => {
     case SET_JOB_DATA:
       return {
         ...state,
-        addJobData: { ...state.addJobData, ...payload }
+        addJobData: { ...state.addJobData, ...payload },
       };
     case CLEAR_JOB_DATA:
       return { ...state, addJobData: {}, quizzOptions: [] };
@@ -75,7 +76,7 @@ const jobsReducer = (state = initialState, { payload, type }) => {
     case SET_JOB_DETAIL_DATA:
       return {
         ...state,
-        jobDetailData: { ...state.jobDetailData, ...payload }
+        jobDetailData: { ...state.jobDetailData, ...payload },
       };
     case CLEAR_JOB_DETAIL_DATA:
       return { ...state, jobDetailData: {} };
@@ -87,7 +88,7 @@ const jobsReducer = (state = initialState, { payload, type }) => {
       return {
         ...state,
         jobTypesLoading: 0,
-        jobTypesList: payload
+        jobTypesList: payload,
       };
     case `${GET_JOB_TYPES}_FAIL`:
       return { ...state, jobTypesLoading: 0 };
@@ -99,7 +100,7 @@ const jobsReducer = (state = initialState, { payload, type }) => {
       return {
         ...state,
         isLoadingjobCategories: 0,
-        jobCategories: payload
+        jobCategories: payload,
       };
     case `${GET_JOB_CATEGORY}_FAIL`:
       return { ...state, isLoadingjobCategories: 0 };
@@ -111,35 +112,35 @@ const jobsReducer = (state = initialState, { payload, type }) => {
       return {
         ...state,
         isLoadingCandidateDetail: 0,
-        jobDetailData: { ...state.jobDetailData, selectedUser: payload }
+        jobDetailData: { ...state.jobDetailData, selectedUser: payload },
       };
     case `${GET_CANDIDATE_DETAIL}_FAIL`:
       return { ...state, isLoadingCandidateDetail: 0 };
 
     // job candidate comment
     // case GET_CANDIDATE_DETAIL:
-      // return { ...state, isLoadingCandidateDetail: 1 };
-      case `${GET_CANDIDATE_COMMENTS}_SUCCESS`:
-        return {
-          ...state,
-          isLoadingCandidateComments: 0,
-          jobDetailData: { ...state.jobDetailData, comments: payload }
-        };
-      case `${GET_CANDIDATE_COMMENTS}_FAIL`:
-        return { ...state, isLoadingCandidateComments: 0 };
+    // return { ...state, isLoadingCandidateDetail: 1 };
+    case `${GET_CANDIDATE_COMMENTS}_SUCCESS`:
+      return {
+        ...state,
+        isLoadingCandidateComments: 0,
+        jobDetailData: { ...state.jobDetailData, comments: payload },
+      };
+    case `${GET_CANDIDATE_COMMENTS}_FAIL`:
+      return { ...state, isLoadingCandidateComments: 0 };
 
     // job add candidate comment
     // case GET_CANDIDATE_DETAIL:
-      // return { ...state, isLoadingCandidateDetail: 1 };
-      case `${ADD_COMMENT}_SUCCESS`:
-        return {
-          ...state,
-          isLoadingCandidateComments: 0,
-          jobDetailData: { ...state.jobDetailData, comments: [...state.jobDetailData.comments,payload] }
-        };
-      case `${ADD_COMMENT}_FAIL`:
-        return { ...state, isLoadingCandidateComments: 0 };
-    
+    // return { ...state, isLoadingCandidateDetail: 1 };
+    case `${ADD_COMMENT}_SUCCESS`:
+      return {
+        ...state,
+        isLoadingCandidateComments: 0,
+        jobDetailData: { ...state.jobDetailData, comments: [...state.jobDetailData.comments, payload] },
+      };
+    case `${ADD_COMMENT}_FAIL`:
+      return { ...state, isLoadingCandidateComments: 0 };
+
     // job candidate detail
     case GET_CUSTOM_CATEGORIES:
       return { ...state, isLoadingCustomCategories: 1 };
@@ -147,7 +148,7 @@ const jobsReducer = (state = initialState, { payload, type }) => {
       return {
         ...state,
         isLoadingCustomCategories: 0,
-        customCategories: payload
+        customCategories: payload,
       };
     case `${GET_CUSTOM_CATEGORIES}_FAIL`:
       return { ...state, isLoadingCustomCategories: 0 };
@@ -158,7 +159,7 @@ const jobsReducer = (state = initialState, { payload, type }) => {
     case `${CREATE_CUSTOM_CATEGORY}_SUCCESS`:
       return {
         ...state,
-        isLoadingCustomCategory: 0
+        isLoadingCustomCategory: 0,
       };
     case `${CREATE_CUSTOM_CATEGORY}_FAIL`:
       return { ...state, isLoadingCustomCategory: 0 };
@@ -170,7 +171,7 @@ const jobsReducer = (state = initialState, { payload, type }) => {
       return {
         ...state,
         isLoadingJobCandidate: 0,
-        jobCandidate: payload
+        jobCandidate: payload,
       };
     case `${GET_JOB_CANDIDATE}_FAIL`:
       return { ...state, isLoadingJobCandidate: 0 };
@@ -182,7 +183,7 @@ const jobsReducer = (state = initialState, { payload, type }) => {
       return {
         ...state,
         companyAddressLoading: 0,
-        companyAddressList: payload
+        companyAddressList: payload,
       };
     case `${GET_COMPANY_ADDRESS}_FAIL`:
       return { ...state, companyAddressLoading: 0 };
@@ -195,7 +196,7 @@ const jobsReducer = (state = initialState, { payload, type }) => {
         ...state,
         universityListLoading: 0,
         universityList: payload.universities,
-        degreeList: payload.degrees
+        degreeList: payload.degrees,
       };
     case `${GET_UNIVERSITY_LIST}_FAIL`:
       return { ...state, universityListLoading: 0 };
@@ -207,7 +208,7 @@ const jobsReducer = (state = initialState, { payload, type }) => {
       return {
         ...state,
         nationalityListLoading: 0,
-        nationalityList: payload
+        nationalityList: payload,
       };
     case `${GET_NATIONALITY_LIST}_FAIL`:
       return { ...state, nationalityListLoading: 0 };
@@ -219,7 +220,7 @@ const jobsReducer = (state = initialState, { payload, type }) => {
       return {
         ...state,
         governorateListLoading: 0,
-        governorateList: payload
+        governorateList: payload,
       };
     case `${GET_GOVERNORATE_LIST}_FAIL`:
       return { ...state, governorateListLoading: 0 };
@@ -228,13 +229,15 @@ const jobsReducer = (state = initialState, { payload, type }) => {
     case GET_JOB_LIST:
       return { ...state, jobsListLoading: 1 };
     case `${GET_JOB_LIST}_SUCCESS`:
+    case `${GET_CAREAR_LIST}_SUCCESS`:
       return {
         ...state,
         jobsListLoading: 0,
         jobsList: payload.jobsList,
-        jobsCount: payload.jobsCount
+        jobsCount: payload.jobsCount,
       };
     case `${GET_JOB_LIST}_FAIL`:
+    case `${GET_CAREAR_LIST}_FAIL`:
       return { ...state, jobsListLoading: 0 };
 
     // create job
@@ -243,7 +246,7 @@ const jobsReducer = (state = initialState, { payload, type }) => {
     case `${CREATE_JOB}_SUCCESS`:
       return {
         ...state,
-        createJobLoading: 0
+        createJobLoading: 0,
       };
     case `${CREATE_JOB}_FAIL`:
       return { ...state, createJobLoading: 0 };

@@ -3,12 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { withNamespaces } from "react-i18next";
 import { Tooltip } from "antd";
-import {
-  ArrowsAltOutlined,
-  RedoOutlined,
-  FormOutlined,
-  DeleteOutlined,
-} from "@ant-design/icons";
+import { ArrowsAltOutlined, RedoOutlined, FormOutlined, DeleteOutlined } from "@ant-design/icons";
 import classnames from "classnames";
 import { Button, Popup } from "semantic-ui-react";
 import moment from "moment";
@@ -62,23 +57,17 @@ class JobsList extends PureComponent {
           </div>
         )}
         {data.map((job, index) => (
-          <div key={job.id} className={classnames(styles.row)}
+          <div
+            key={job.id}
+            className={classnames(styles.row)}
+            onClick={() => {
+              actions.goToJobDetail(job.id);
+            }}
           >
             {[
-              <span
-                className={styles.job_title}
-                onClick={() => {
-                  actions.goToJobDetail(job.id);
-                }}
-              >
-                {job.title}
-              </span>,
+              <span className={styles.job_title}>{job.title}</span>,
               job.active ? "Open" : "Close",
-              job.Addresses &&
-              job.Addresses.length &&
-              job.Addresses[0].Governorate > 0
-                ? job.Addresses[0].Governorate.name.en
-                : "Not set",
+              job.Addresses && job.Addresses.length && job.Addresses[0].Governorate > 0 ? job.Addresses[0].Governorate.name.en : "Not set",
               moment(job.expected_hiring_date).format("ll"),
               job.PostUsers.length,
               job.note ? (
@@ -88,18 +77,19 @@ class JobsList extends PureComponent {
                     position="top left"
                     data-variation="huge"
                     data-variation="very wide"
-                  style={{backgroundColor:'#4CAF50',
-                marginBottom:'8px',
-                border: 'none',
-                color: 'white',
-                padding: '15px 15px',
-                textAlign: 'left',
-                textDecoration: 'none',
-                display: 'inline-block',
-                fontSize: '14px',
-                cursor: 'pointer',
-                borderRadius:'6px'
-                }}
+                    style={{
+                      backgroundColor: "#4CAF50",
+                      marginBottom: "8px",
+                      border: "none",
+                      color: "white",
+                      padding: "15px 15px",
+                      textAlign: "left",
+                      textDecoration: "none",
+                      display: "inline-block",
+                      fontSize: "14px",
+                      cursor: "pointer",
+                      borderRadius: "6px",
+                    }}
                   >
                     {" "}
                     {job.note}
@@ -107,6 +97,9 @@ class JobsList extends PureComponent {
                 </div>
               ) : (
                 <input
+                  onClick={(e) => {
+                    e.stopPropagation();
+                  }}
                   type="text"
                   placeholder="Type a note..."
                   className={styles.note1}
@@ -160,7 +153,4 @@ const mapDispatchToProps = (dispatch) => ({
   noteaActions: bindActionCreators({ postNote }, dispatch),
 });
 
-export default connect(
-  (state) => state,
-  mapDispatchToProps
-)(withNamespaces()(JobsList));
+export default connect((state) => state, mapDispatchToProps)(withNamespaces()(JobsList));

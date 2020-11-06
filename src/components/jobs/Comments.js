@@ -39,7 +39,20 @@ export default class Comments extends PureComponent {
         {/* </Scrollbars> */}
         {isSelected && isSelected.user ? (
           <div>
-            <input type="text" value={body} placeholder="Your Comment" onChange={this.handleChange} />
+            <input
+              type="text"
+              value={body}
+              placeholder="Your Comment"
+              onChange={this.handleChange}
+              style={{
+                width: "200px",
+                backgroundColor: "#F7F8F8",
+                borderRadius: "15px",
+                padding: "8px 12px",
+                border: "none",
+                marginRight: "12%",
+              }}
+            />
             <button className="btn btn-lg-danger" type="submit" size="large" onClick={this.handleAddComment}>
               Comment
             </button>
